@@ -113,20 +113,25 @@ describe("ADMIRAL Function", () => {
 describe("BATTLE Function", () => {
     const Mark = new ADMIRAL("Mark",[federation.Aracheon,federation.Voyager,federation.Discovery,federation.Dauntless,federation.Nexus,federation.Enterprise]);
     Mark.chooseRace("Federation");
+
     const Ollie = new ADMIRAL("Ollie",[klingon.Vornak,klingon.Bortas,klingon.Vayang,klingon.Chatang,klingon.Kitang,klingon.Somraw]);
     Ollie.chooseRace("Klingon");
+
     const Battle1 = new BATTLE(Mark.name,Mark.fleet[0],Ollie.name,Ollie.fleet[0]);
+
     it("BATTLE can take two ADMIRALS and hold them and their chosen SHIPS",() => {
-    expect(Battle1.admiral1Name).toEqual("Mark");
-    expect(Battle1.admiral2Name).toEqual("Ollie");
-    expect(Battle1.admiral1SHIP).toEqual(Mark.fleet[0]);
-    expect(Battle1.admiral2SHIP).toEqual(Ollie.fleet[0]);
+        expect(Battle1.admiral1Name).toEqual("Mark");
+        expect(Battle1.admiral2Name).toEqual("Ollie");
+        expect(Battle1.admiral1SHIP).toEqual(Mark.fleet[0]);
+        expect(Battle1.admiral2SHIP).toEqual(Ollie.fleet[0]);
     })
     describe("fight Function", () => {
         it("Take the attacker ship and the defender ship and hold these.",() => {
-        Battle1.fight(Battle1.admiral1SHIP,Battle1.admiral2SHIP);
-        expect(Battle1.fight).toEqual(Mark.fleet[0]);
-        expect(Battle1.fight.defender).toEqual(Ollie.fleet[0]);
+            console.log(Battle1.admiral1SHIP);
+            console.log(Battle1.admiral2SHIP);
+            Battle1.fight(Battle1.admiral1SHIP,Battle1.admiral2SHIP);
+            console.log(Battle1.admiral2SHIP);
+            console.log(Battle1.admiral1SHIP);
         })
     })
 })
